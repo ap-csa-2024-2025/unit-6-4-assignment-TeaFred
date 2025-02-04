@@ -39,10 +39,6 @@ public class Main
     {
       for (int j = i+1; j < arr.length; j++)
       {
-        if (j > arr.length)
-        {
-          return false;
-        }
         if (arr[i] == arr[j])
         {
           return true;
@@ -52,9 +48,27 @@ public class Main
     return false;
   }
 
-  public static String findMode(String[] arr)
+  public static int findMode(int[] arr)
   {
-    // replace with your code
-    return null;
+    int theMode = arr[0];
+    int highestCounter = 0; 
+    int currCounter = 0;
+    for (int i = 0; i < arr.length; i++)
+    {
+      currCounter = 0;
+      for (int j = i + 1; j < arr.length; j++)
+      {
+        if (arr[i] == arr[j])
+        {
+          currCounter++;
+        }
+      }
+      if (currCounter > highestCounter)
+      {
+        theMode = arr[i];
+        highestCounter = currCounter;
+      }
+    }
+    return theMode;
   }
 }
